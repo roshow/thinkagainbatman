@@ -349,16 +349,9 @@ module.exports = function (grunt) {
         configFile: 'karma.conf.js',
         singleRun: true
       }
-    },
-
-
-    nodemon: {
-      dev: {
-        script: 'restapi/app.js'
-      }
     }
-
   });
+
 
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {

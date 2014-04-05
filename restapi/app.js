@@ -26,11 +26,12 @@ function startServer(){
         server[route.method](route.path, route.action);
     });
 
-    // server.listen(7777, function(){
-    //     console.log('%s listening at %s', server.name, server.url);
-    // });
-    return server;
+    server.listen(7777, function(){
+        console.log('%s listening at %s', server.name, server.url);
+    });
+    // return server;
 }
 
-module.exports = handler.connectDb().then(startServer);
+handler.connectDb().then(startServer);
+// module.exports = handler.connectDb().then(startServer);
 
