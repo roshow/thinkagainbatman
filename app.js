@@ -2,18 +2,12 @@
 var restify = require('restify'),
     handler = require('./lib/handler'),
     server = restify.createServer({ name: 'thinkbatman' });
-
-var conf = {
-    DB_USER: 'batman',
-    DB_PW: 'androbin',
-    DB_FULLPATH: 'ds043388.mongolab.com:43388/thinkbatman'
-};
-
+    
 server
   .use(restify.fullResponse())
   .use(restify.bodyParser());
 
-handler.connectDb('mongodb://' + conf.DB_USER + ':' + conf.DB_PW +  '@' + conf.DB_FULLPATH)
+handler.connectDb()
     .then(function(){
         /** Go get some! **/
         server.get(/^\/(?:bat-|)thought(?:\/(.*)|)$/, handler.thought.get);
