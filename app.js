@@ -1,17 +1,29 @@
-var express = require('express'),
-    handler = require('./handler'),
-    routing = require('./routing'),
-    app = express();
+'use strict';
+var restify = require('restify'),
+    handler = require('./lib/handler'),
+    server = restify.createServer({ name: 'thinkbatman' });
 
-var routes = routing.routes,
-    L = routes.length;
-for (var i = 0; i < L; i++){
-    if(routes[i].public === true){
-        app.use(express.static(__dirname + routes[i].path));
-    }
-    else {
-        app[routes[i].method](routes[i].path, handler[routes[i].action]);
-    }
-}
-app.listen(routing.port);
-console.log('Listening on port %s', routing.port);
+var conf = {
+    DB_USER: 'batman',
+    DB_PW: 'androbin',
+    DB_FULLPATH: 'ds043388.mongolab.com:43388/thinkbatman'
+};
+
+console.log('mongodb://' + conf.DB_USER + ':' + conf.DB_PW +  '@' + conf.DB_FULLPATH);
+
+server
+  .use(restify.fullResponse())
+  .use(restify.bodyParser());
+
+handler.connectDb('mongodb://' + conf.DB_USER + ':' + conf.DB_PW +  '@' + conf.DB_FULLPATH)
+    .then(function(){
+        /** Go get some! **/
+        server.get('/thought', handler.thought.get);
+        server.get('/thought/:batId', handler.thought.get);
+        /** Put some over here **/
+        server.put('/thought', handler.thought.put);
+        /** I'm here to listen **/
+        server.listen(7777, function(){
+            console.log('%s listening at %s', server.name, server.url);
+        });
+    });

@@ -1,16 +1,22 @@
-function index(req, res){
-    console.log('handling /');
-    res.render('index.jade', {
-        message: 'hello.'
-    });
-}
+'use strict';
+var db = require('./db'),
+    handler = {
+        connectDb: db.connect,
+        thought: {}
+    };
 
-function defaultAction(req, res){
-    console.log('handling *');
-    res.send(404, 'default: 404')
-}
-
-module.exports = {
-    index: index,
-    defaultAction: defaultAction
+handler.thought.get = function(req, res){
+    var q  = req.params.batId ? { id:  req.params.batId } : {};
+    db.find(q).then(
+        function(docs){
+            res.send(200, docs);
+        },
+        function(err){ console.log(err); }
+    );
 };
+
+handler.thought.put = function(req,res){
+    res.send(404);
+};
+
+module.exports = handler;

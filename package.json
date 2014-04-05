@@ -9,6 +9,7 @@
   "private": true,
   "dependencies": {
     "restify": "*",
-    "mongoose": "*"	  
+    "mongoose": "*",
+    "promised-io": "*"
   }
 }
