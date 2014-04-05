@@ -1,0 +1,14 @@
+{
+  "name": "",
+  "description": "",
+  "author": {
+    "name": "roshow",
+    "url": "http://roshow.net"
+  },
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "restify": "*",
+    "mongoose": "*"	  
+  }
+}
