@@ -15,6 +15,7 @@ handler.thought.get = function(req, res){
     var q  = req.params[0] ? { id:  req.params[0] } : {};
     db.find(q).then(
         function(docs){
+            console.log(docs[0]);
             res.send(200, new WrappedResponse(docs));
         },
         function(err){ console.log(err); }
