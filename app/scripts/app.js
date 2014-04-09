@@ -1,18 +1,20 @@
 'use strict';
 
 angular.module('thinkagainbatmanApp', [
-  'ngCookies',
-  'ngResource',
-  'ngSanitize',
-  'ngRoute'
+    'ngResource',
+    'ngRoute'
 ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+    .config(function ($routeProvider) {
+        $routeProvider
+            .when('/thought', {
+                templateUrl: 'views/thought.html',
+                controller: 'ThoughtCtrl'
+            })
+            .when('/thought/:batId', {
+                templateUrl: 'views/thought.html',
+                controller: 'ThoughtCtrl'
+            })
+            .otherwise({
+                redirectTo: '/thought'
+            });
+    });

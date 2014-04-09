@@ -6,8 +6,12 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <title></title>
-    <meta name="description" content="">
+    <meta name="description" content="Thinking about Batman" />
+    <meta property="og:title" content="Thinking About Batman"/>
+    <meta property="og:url" content="http://thinkingaboutbatman.com"/>
+    <meta property="og:image" content="http://thinkingaboutbatman.com/img/ogimage.jpg"/>
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
@@ -16,7 +20,9 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
+    <link href="http://fonts.googleapis.com/css?family=Oswald:400,700,300" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/thinkbatman.css"/>
     <!-- endbuild -->
   </head>
   <body ng-app="thinkagainbatmanApp">
@@ -57,7 +63,8 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/thought.js"></script>
+        <script src="scripts/services/thoughtServices.js"></script>
         <!-- endbuild -->
 </body>
 </html>

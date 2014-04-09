@@ -19,8 +19,9 @@ routes = [
     
 function startServer(){
     server
-      .use(restify.fullResponse())
-      .use(restify.bodyParser());
+        .use(restify.queryParser())
+        .use(restify.fullResponse())
+        .use(restify.bodyParser());
 
     routes.forEach(function(route){
         server[route.method](route.path, route.action);

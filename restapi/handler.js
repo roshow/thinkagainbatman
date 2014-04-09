@@ -12,8 +12,11 @@ function WrappedResponse(docs){
 }
 
 handler.thought.get = function(req, res){
-    var q  = req.params[0] ? { id:  req.params[0] } : {};
-    db.find(q).then(
+    var q, method;
+    console.log(req.url);
+    method = (req.params.random) ? 'random' : 'find';
+    q  = req.params[0] ? { id:  req.params[0] } : {};
+    db[method](q).then(
         function(docs){
             res.send(200, new WrappedResponse(docs));
         },

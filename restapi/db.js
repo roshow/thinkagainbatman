@@ -37,6 +37,20 @@ db.find = function(query){
     return def;
 };
 
+db.random = function(){
+    var def = new promised.Deferred();
+    batThoughtModel.count({}, function(err, count){
+        if (err) { def.reject(err); }
+        else {
+            var randy = Math.floor(Math.random()*count);
+            batThoughtModel.find({}).limit(1).skip(randy).exec(function(err, docs){
+                def.resolve(docs);
+            })
+        }
+    });
+    return def;
+}
+
 db.putAThought = function(model){
     var def = new promised.Deferred(),
         _id = model._id;
