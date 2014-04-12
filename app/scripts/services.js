@@ -8,7 +8,8 @@ angular.module('thinkagainbatmanApp')
                 responseType: 'json',
                 transformResponse: function(data){
                     return data.docs[0];
-                }, isArray:false
+                },
+                sArray:false
             },
             random: {
                 method:'GET',
@@ -18,7 +19,8 @@ angular.module('thinkagainbatmanApp')
                 responseType: 'json',
                 transformResponse: function(data){
                     return data.docs[0];
-                }, isArray:false
+                },
+                isArray:false
             }
         });
     });

@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('thinkagainbatmanApp', [
+angular.module('thinkagainbatmanApp', [
     'ngResource',
     'ngRoute'
 ])
@@ -17,23 +17,6 @@ var app = angular.module('thinkagainbatmanApp', [
             .otherwise({
                 redirectTo: '/thought'
             });
-    })
+    });
 
-app.directive('backImg', function(){
-    return function(scope, element, attrs){
-        attrs.$observe('backImg', function(value) {
-            element.css({
-                'background-image': 'url(' + value +')'
-            });
-        });
-    };
-});
-app.directive('backSize', function(){
-    return function(scope, element, attrs){
-        attrs.$observe('backSize', function(value) {
-            element.css({
-                'background-size' : value
-            });
-        });
-    };
-});
+
