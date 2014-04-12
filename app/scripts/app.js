@@ -30,7 +30,6 @@ app.directive('backImg', function(){
 });
 app.directive('backSize', function(){
     return function(scope, element, attrs){
-        console.log(element);
         attrs.$observe('backSize', function(value) {
             element.css({
                 'background-size' : value
