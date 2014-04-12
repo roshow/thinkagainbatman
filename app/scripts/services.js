@@ -5,9 +5,8 @@ angular.module('thinkagainbatmanApp')
         return $resource('http://thinkingaboutbatman.herokuapp.com/thought/:id', {}, {
             query: {
                 method: 'GET',
-                responseType: 'json',
                 transformResponse: function(data){
-                    return data.docs[0];
+                    return JSON.parse(data).docs[0];
                 },
                 sArray:false
             },
@@ -16,9 +15,8 @@ angular.module('thinkagainbatmanApp')
                 params: {
                     random:true
                 },
-                responseType: 'json',
                 transformResponse: function(data){
-                    return data.docs[0];
+                    return JSON.parse(data).docs[0];
                 },
                 isArray:false
             }
