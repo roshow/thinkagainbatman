@@ -22,20 +22,18 @@ angular.module('thinkagainbatmanApp')
         }
     }])
     .controller('ManageController', ['$scope', '$routeParams', 'GetAThought', function ($scope, $routeParams, GetAThought){
-        $scope.hello = function (){
-            $scope.editThought = true;
-        };
-        $scope.goodbye = function (){
-            $scope.editThought = false;
-        };
         console.log($routeParams);
         if (!$routeParams.id){
+            $scope.editThought = false;
             GetAThought.query().$promise.then(function(thoughts){
                 console.log(thoughts);
                 $scope.thoughts = thoughts.docs;
             });
         }
         else {
-            console.log($routeParams.id);
+            $scope.editThought = true;
+            GetAThought.query($routeParams).$promise.then(function(thought){
+                $scope.thought = thought.docs[0];
+            });
         }
     }]);

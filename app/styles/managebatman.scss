@@ -26,8 +26,18 @@ div {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    opacity: 0.3;
+    opacity: 1;
     &:hover {
+        opacity: 1;
+        top: -7px;
+        left: -7px;
+        box-shadow: -8px -8px 12px #666;
+        position: relative;
+    }
+    &.thumb-big {
+        height: 300px;
+        width: 300px;
+        margin: 10px;
         opacity: 1;
     }
 }

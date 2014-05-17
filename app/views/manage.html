@@ -8,13 +8,22 @@
             <div class="manage-topnav">
                 <input type="text" class="form-control manage-search" ng-model="thumbSearch" placeholder="Search" />
             </div>
-            <a ng-repeat="thought in thoughts | filter: thumbSearch" ng-href="#/manage/{{thought._id}}">
-                <div class="thumb" back-img="thought.img"></div>
+            <a ng-repeat="athought in thoughts | filter: thumbSearch" ng-href="#/manage/{{athought.id}}">
+                <div class="thumb" back-img="athought.img"></div>
             </a>
         </span>
         <span ng-if="editThought">
             <div class="manage-topnav">
-                <button type="button" class="btn btn-default" ng-click="goodbye()">Back to All Thoughts</button>
+                <a href="#/manage">
+                    <button type="button" class="btn btn-default" ng-click="goodbye()">Back to All Thoughts</button>
+                </a>
             </div>
+            <div class="thumb thumb-big" back-img="thought.img"></div>
+            <form role="form">
+              <div class="form-group">
+                <label for="about">About the thought, including credit.</label>
+                <input ng-model="thought.img.src" type="text" class="form-control" id="about" />
+              </div>
+          </form>
         </span>
 </div>
