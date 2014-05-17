@@ -5,10 +5,6 @@ angular.module('thinkagainbatmanApp')
         return $resource('http://thinkingaboutbatman.herokuapp.com/thought/:id', {}, {
             query: {
                 method: 'GET',
-                transformResponse: function(data){
-                    console.log('anything')
-                    return JSON.parse(data);
-                },
                 isArray: false
             },
             random: {

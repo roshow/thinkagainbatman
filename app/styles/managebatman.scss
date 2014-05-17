@@ -11,6 +11,17 @@ div {
     margin: 0;
 }
 
+form {
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+    margin: 10px 0 0 20px;
+
+    label {
+        margin-top: 10px;
+    }
+}
+
 .manage-topnav {
     margin: 20px 0;
     .manage-search {
@@ -39,6 +50,9 @@ div {
         width: 300px;
         margin: 10px;
         opacity: 1;
+        box-shadow: none;
+        top: 0px;
+        left: 0px;
     }
 }
 

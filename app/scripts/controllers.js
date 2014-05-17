@@ -33,6 +33,7 @@ angular.module('thinkagainbatmanApp')
         else {
             $scope.editThought = true;
             GetAThought.query($routeParams).$promise.then(function(thought){
+                console.log(thought);
                 $scope.thought = thought.docs[0];
             });
         }

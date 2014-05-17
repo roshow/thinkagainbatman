@@ -19,11 +19,33 @@
                 </a>
             </div>
             <div class="thumb thumb-big" back-img="thought.img"></div>
+            
+            <!-- FORM START -->
             <form role="form">
               <div class="form-group">
+                
                 <label for="about">About the thought, including credit.</label>
-                <input ng-model="thought.img.src" type="text" class="form-control" id="about" />
+                <input ng-model="thought.credit.name" type="text" class="form-control" id="about" />
+                
+                <label for="linkage">Url where you found this -- give props, when props are due.</label>
+                <input ng-model="thought.credit.link" type="text" class="form-control" id="linkage" />
+              
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" ng-model="thought.img.scale" value="cover" ng-check="!thought.img.scale || thought.img.scale === 'cover'">
+                    Cover
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" ng-model="thought.img.scale" value="contain"  ng-check="thought.img.scale === 'contain'">
+                    Contain
+                  </label>
+                </div>
+
               </div>
-          </form>
+            </form>
+            <!-- FORM STOP -->
+
         </span>
 </div>
