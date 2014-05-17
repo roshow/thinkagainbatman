@@ -4,20 +4,21 @@
 
 <div id="manage-container" class="container">
     <h1>Manage Your Thoughts About Batman </h1>
+
+        <!-- view all or search for thoughts -->
         <span ng-if="!editThought">
             <div class="manage-topnav">
                 <input type="text" class="form-control manage-search" ng-model="thumbSearch" placeholder="Search" />
             </div>
-            <a ng-repeat="athought in thoughts | filter: thumbSearch" ng-href="#/manage/{{athought.id}}">
-                <div class="thumb" back-img="athought.img"></div>
-            </a>
+            <div ng-repeat="athought in thoughts | filter: thumbSearch" link-to="/manage/{{athought.id}}" class="thumb" back-img="athought.img"></div>
         </span>
-        <span ng-if="editThought">
+
+        <!-- edit/create thoughts -->
+        <span ng-if="editThought" class="editThought">
             <div class="manage-topnav">
-                <a href="#/manage">
-                    <button type="button" class="btn btn-default" ng-click="goodbye()">Back to All Thoughts</button>
-                </a>
+                <button type="button" class="btn btn-default" link-to="/manage")>Back to All Thoughts</button>
             </div>
+            
             <div class="thumb thumb-big" back-img="thought.img"></div>
             
             <!-- FORM START -->

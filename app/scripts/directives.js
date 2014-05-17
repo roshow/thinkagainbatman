@@ -26,12 +26,11 @@ angular.module('thinkagainbatmanApp')
     };
 })
 
-.directive('backSize', function(){
-    return function(scope, element, attrs){
-        attrs.$observe('backSize', function(value) {
-            element.css({
-                'background-size' : value
-            });
+.directive('linkTo', ['$location', function($location){
+    return function(scope, element, attr){
+        element.on('click', function(){
+            $location.path(attr.linkTo).replace();;
+            scope.$apply();
         });
     };
-});
+}]);

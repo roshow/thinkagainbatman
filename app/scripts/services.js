@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('thinkagainbatmanApp')
-    .factory('GetAThought', [ '$resource', function ($resource){
+    .factory('GetAThought', ['$resource', function($resource){
         return $resource('http://thinkingaboutbatman.herokuapp.com/thought/:id', {}, {
             query: {
                 method: 'GET',
