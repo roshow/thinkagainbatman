@@ -1,0 +1,9 @@
+<!-- build:css styles/vendor.css --><!-- bower:css -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<!-- endbower --><!-- endbuild -->
+
+<h1>Manage Your Thoughts About Batman </h1>
+<ul>
+    <li ng-repeat="thought in thoughts">{{thought}}</li>
