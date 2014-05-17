@@ -1,0 +1,39 @@
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-top: 1em;
+}
+
+div {
+    margin: 0;
+}
+
+.manage-topnav {
+    margin: 20px 0;
+    .manage-search {
+        width: 40%;
+    }
+}
+
+.thumb {
+    display: inline-block;
+    height: 150px;
+    width: 150px;
+    background-color: #bbb;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 0.3;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.thumb-label {
+    display: inline-block;
+    margin: 5px 0 0 25px;
+    vertical-align: top;
+}

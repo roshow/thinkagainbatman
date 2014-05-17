@@ -1,15 +1,20 @@
-<!-- build:css styles/vendor.css -->
-<!-- bower:css -->
-
-<!-- endbower -->
-<!-- endbuild -->
+<!-- build:css({.tmp,app}) styles/managebatman.css -->
 <link rel="stylesheet" href="styles/managebatman.css"/>
+<!-- endbuild -->
 
-<div class="container">
+<div id="manage-container" class="container">
     <h1>Manage Your Thoughts About Batman </h1>
-        <div ng-if="!thought">
-            <ul>
-                <li ng-repeat="thought in thoughts">{{thought.credit.name}}</li>
-            </ul>
-        </div>
+        <span ng-if="!editThought">
+            <div class="manage-topnav">
+                <input type="text" class="form-control manage-search" ng-model="thumbSearch" placeholder="Search" />
+            </div>
+            <a ng-repeat="thought in thoughts | filter: thumbSearch" ng-href="#/manage/{{thought._id}}">
+                <div class="thumb" back-img="thought.img"></div>
+            </a>
+        </span>
+        <span ng-if="editThought">
+            <div class="manage-topnav">
+                <button type="button" class="btn btn-default" ng-click="goodbye()">Back to All Thoughts</button>
+            </div>
+        </span>
 </div>
