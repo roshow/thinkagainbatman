@@ -4,7 +4,7 @@ angular.module('thinkagainbatmanApp')
     .controller('ThoughtController', ['$scope', '$routeParams', '$location', 'GetAThought', function ($scope, $routeParams, $location, GetAThought){
         function getRandom(){
             GetAThought.random(function (thought){
-                $location.path('thought/' + thought.id);
+                $location.path('thought/' + thought.docs[0].id);
             });
         }
         $scope.getRandom = getRandom;
@@ -21,22 +21,34 @@ angular.module('thinkagainbatmanApp')
         }
     }])
     .controller('ManageController', ['$scope', '$routeParams', 'GetAThought', function ($scope, $routeParams, GetAThought){
-        if (!$routeParams.id){
-            GetAThought.query().$promise.then(function(thoughts){
-                $scope.thoughts = thoughts.docs;
-            });
+        GetAThought.query().$promise.then(function(thoughts){
+            $scope.thoughts = thoughts.docs;
+        });
+    }])
+    .controller('ManageAThoughtController', ['$scope', '$routeParams', 'GetAThought', function ($scope, $routeParams, GetAThought){
+    
+        function updateState (newState){
+            $scope.saveState = newState;
+            $scope.showAlert = true;
         }
-        else {
-            $scope.thoughtInstance = GetAThought.find($routeParams, function(thought){
-                $scope.thought = thought.docs[0];
-            });
 
-            $scope.saveThought = function(){
-                $scope.thoughtInstance.$save($scope.thought, function(savedThought){
-                    $scope.saved = true;
-                    $scope.thought = savedThought.docs[0];
-                    // console.log($scope.thought);
-                });
-            };
-        }
+        $scope.saveState = 0;
+        $scope.showAlert = true;
+
+
+        $scope.thoughtInstance = GetAThought.find($routeParams, function(thought){
+            $scope.thought = thought.docs[0];
+        });
+
+        $scope.hideAlert = function(){
+            $scope.showAlert = false;
+        };
+        
+        $scope.saveThought = function(){
+            updateState(3);
+            $scope.thoughtInstance.$save($scope.thought, function(savedThought){
+                updateState(4);
+                $scope.thought = savedThought.docs[0];
+            });
+        };
     }]);

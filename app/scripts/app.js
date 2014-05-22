@@ -20,7 +20,7 @@ angular.module('thinkagainbatmanApp', [
             })
             .when('/manage/:id', {
                 templateUrl: 'views/manage_thought.html',
-                controller: 'ManageController'
+                controller: 'ManageAThoughtController'
             })
             .otherwise({
                 redirectTo: '/thought'

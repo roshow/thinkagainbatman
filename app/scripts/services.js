@@ -9,18 +9,12 @@ angular.module('thinkagainbatmanApp')
             },
             find: {
                 method: 'GET',
-                // transformResponse: function(data){
-                //     return JSON.parse(data).docs[0];
-                // },
                 isArray: false
             },
             random: {
                 method:'GET',
                 params: {
                     random:true
-                },
-                transformResponse: function(data){
-                    return JSON.parse(data).docs[0];
                 },
                 isArray:false
             },
