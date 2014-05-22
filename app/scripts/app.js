@@ -19,7 +19,7 @@ angular.module('thinkagainbatmanApp', [
                 controller: 'ManageController'
             })
             .when('/manage/:id', {
-                templateUrl: 'views/manage.html',
+                templateUrl: 'views/manage_thought.html',
                 controller: 'ManageController'
             })
             .otherwise({
