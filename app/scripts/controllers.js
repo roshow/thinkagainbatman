@@ -10,9 +10,11 @@ angular.module('thinkagainbatmanApp')
         $scope.getRandom = getRandom;
         if ($routeParams.batId){
             var q = {
-                id: ($routeParams.batId.length === 24) ? $routeParams.batId.slice(19) : $routeParams.batId
+                // id: ($routeParams.batId.length === 24) ? $routeParams.batId.slice(19) : $routeParams.batId
+                id: $routeParams.batId
             };
             GetAThought.query(q).$promise.then(function(thoughts){
+                console.log(thoughts.docs[0]);
                 $scope.thought = thoughts.docs[0];
             });
         }
@@ -20,11 +22,13 @@ angular.module('thinkagainbatmanApp')
             getRandom();
         }
     }])
-    .controller('ManageController', ['$scope', '$routeParams', 'GetAThought', function ($scope, $routeParams, GetAThought){
+
+    .controller('ManageController', ['$scope', 'GetAThought', function ($scope, GetAThought){
         GetAThought.query().$promise.then(function(thoughts){
             $scope.thoughts = thoughts.docs;
         });
     }])
+
     .controller('ManageAThoughtController', ['$scope', '$routeParams', 'GetAThought', function ($scope, $routeParams, GetAThought){
     
         function updateState (newState){

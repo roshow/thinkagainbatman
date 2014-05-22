@@ -1,0 +1,62 @@
+<!-- build:css({.tmp,app}) styles/managebatman.css -->
+<link rel="stylesheet" href="styles/managebatman.css"/>
+<!-- endbuild -->
+<div ng-click="showAlert = false" class="alert alert-info alert-dismissable" ng-show="saveState === 3 && showAlert">
+  <strong>Saving...</strong>
+</div>
+
+<div ng-click="showAlert = false" class="alert alert-success alert-dismissable" ng-show="saveState === 4 && showAlert">
+  <strong>Save Successful!</strong> Click on open live to see it to confirm.
+</div>
+
+<div id="manage-container" class="container">
+
+    
+    <h1>Manage This Bat-Thought </h1>
+
+<!-- edit/create thoughts -->
+
+    <div class="manage-topnav">
+        <!-- <button type="button" class="btn btn-default" link-to="/manage">Back to All Thoughts</button> -->
+        <a ng-href="#/manage" class="btn btn-default">Back to All Thoughts</a>
+        <button type="button" class="btn btn-default" ng-click="saveThought()">Save</button>
+        <a ng-href="#/thought/{{thought.id}}" target="_blank" class="btn btn-default">open live</a>
+    </div>
+
+    <div class="thumb thumb-big" back-img="thought.img"></div>
+    
+<!-- FORM START -->
+
+    <form role="form">
+      <div class="form-group">
+        
+        <label for="about">About the thought, including credit.</label>
+        <input ng-model="thought.credit.name" type="text" class="form-control" id="about" />
+        
+        <label for="linkage">Url where you found this -- give props, when props are due.</label>
+        <input ng-model="thought.credit.link" type="text" class="form-control" id="linkage" />
+      
+        <div class="radio-buttons">
+
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadios" ng-model="thought.img.scale" value="cover" ng-check="thought.img.scale === ''">
+                    Cover
+                </label>
+            </div>
+
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadios" ng-model="thought.img.scale" value="contain">
+                    Contain
+                </label>
+            </div>
+
+        </div>
+
+      </div>
+    </form>
+
+<!-- FORM STOP -->
+
+</div>
