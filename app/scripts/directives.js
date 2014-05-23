@@ -13,7 +13,8 @@ angular.module('thinkagainbatmanApp')
                 if (newVal && newVal.src){
                     var i = Math.floor(Math.random()*3),
                         img = new Image();
-                    element.html('<img id="batspinner" src="http://roshow.net/public/images/thinkbatman/spinners/batspinner_'+ i +'.jpg">');
+                    // Spinner
+                    // element.html('<img id="batspinner" src="http://roshow.net/public/images/thinkbatman/spinners/batspinner_'+ i +'.jpg">');
                     img.onload = function(){
                         element.html('');
                         element.css({
@@ -31,8 +32,22 @@ angular.module('thinkagainbatmanApp')
 .directive('linkTo', ['$location', function($location){
     return function(scope, element, attr){
         element.on('click', function(){
-            $location.path(attr.linkTo).replace();;
+            $location.path(attr.linkTo).replace();
             scope.$apply();
         });
     };
-}]);
+}])
+
+.directive('upFile', function(){
+    return {
+        restrict: 'A',
+        scope: {
+            upFile: '=upFile'
+        },
+        link: function(scope, element, attr){
+            element.on('change', function(){
+                console.log(this.files);
+            });
+        }
+    };
+});

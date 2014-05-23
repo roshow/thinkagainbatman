@@ -4,7 +4,7 @@ angular.module('thinkagainbatmanApp')
     .controller('ThoughtController', ['$scope', '$routeParams', '$location', 'GetAThought', function ($scope, $routeParams, $location, GetAThought){
         function getRandom(){
             GetAThought.random(function (thought){
-                $location.path('thought/' + thought.docs[0].id);
+                $location.path('thought/' + thought.docs[0]._id);
             });
         }
         $scope.getRandom = getRandom;
@@ -69,10 +69,13 @@ angular.module('thinkagainbatmanApp')
                 $scope.thought = savedThought.docs[0];
             });
         };
-
         $scope.uploadFiles = function(){
-            function uploadFiles (url, files) {
-                var formData = new FormData();
+
+            document.querySelector('input[type="file"]').addEventListener('change', function (err){
+                // console.log(this.files);
+                var url = '/uploadImg',
+                    files = this.files,
+                    formData = new FormData();
 
                 for (var i = 0, file; file = files[i]; ++i) {
                     formData.append(file.name, file);
@@ -80,13 +83,15 @@ angular.module('thinkagainbatmanApp')
 
                 var xhr = new XMLHttpRequest();
                 xhr.open('POST', url, true);
+                xhr.responseType = 'json';
+                xhr.onload = function(data){
+                    $scope.thought.img.src = 'http://roshow.net/public/images/thinkbatman/' + xhr.response.docs[0];
+                    $scope.saveThought();
+                    console.log(data);
+                    // console.log(xhr);
+                };
 
                 xhr.send(formData);  // multipart/form-data
-            }
-
-            document.querySelector('input[type="file"]').addEventListener('change', function (e){
-                console.log(this.files);
-                uploadFiles('/uploadImg', this.files);
             }, false);
         };
     }]);
