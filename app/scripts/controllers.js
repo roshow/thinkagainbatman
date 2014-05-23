@@ -22,8 +22,8 @@ angular.module('thinkagainbatmanApp')
         }
     }])
 
-    .controller('ManageController', ['$scope', 'GetAThought', function ($scope, GetAThought){
-        $scope.thoughtInstance = GetAThought.query(function(thoughts){
+    .controller('ManageController', ['$scope', '$location', 'GetAThought', function ($scope, $location, GetAThought){
+        $scope.thoughtInstance = GetAThought.query(function (thoughts){
             $scope.thoughts = thoughts.docs;
         });
         $scope.addAThought = function(){
@@ -36,8 +36,8 @@ angular.module('thinkagainbatmanApp')
                     name: 'Default thought',
                     link: '#/thought'
                 }
-            }, function (addedThought){
-                console.log(addedThought);
+            }).$promise.then(function (addedThought){
+                $location.path('/manage/' + addedThought.docs[0]._id);
             });
         };
     }])
