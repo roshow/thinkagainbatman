@@ -48,9 +48,7 @@ form {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    opacity: 1;
     &:hover {
-        opacity: 1;
         top: -5px;
         left: -5px;
         box-shadow: 12px 12px 13px #222;
@@ -71,4 +69,12 @@ form {
     display: inline-block;
     margin: 5px 0 0 25px;
     vertical-align: top;
+}
+
+.submit-btn {
+    margin-top: 20px;
+}
+
+.inline {
+    display: inline-block;
 }

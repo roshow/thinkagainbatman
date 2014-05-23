@@ -19,15 +19,14 @@
     <div class="manage-topnav">
         <!-- <button type="button" class="btn btn-default" link-to="/manage">Back to All Thoughts</button> -->
         <a ng-href="#/manage" class="btn btn-default">Back to All Thoughts</a>
-        <button type="button" class="btn btn-default" ng-click="saveThought()">Save</button>
-        <a ng-href="#/thought/{{thought.id}}" target="_blank" class="btn btn-default">open live</a>
+        <a ng-href="#/thought/{{thought._id}}" target="_blank" class="btn btn-default">open live</a>
     </div>
 
     <div class="thumb thumb-big" back-img="thought.img"></div>
     
 <!-- FORM START -->
 
-    <form role="form">
+    <form ng-submit="saveThought()" role="form">
       <div class="form-group">
         
         <label for="about">About the thought, including credit.</label>
@@ -51,10 +50,14 @@
                     Contain
                 </label>
             </div>
-
         </div>
+        <input type="submit" class="btn btn-default submit-btn" value="Save" />
 
       </div>
+    </form>
+    <form enctype="multipart/form-data" ng-submit="uploadFiles()">
+        <input id="image-file" type="file" name="newImage"/>
+        <input type="submit" value="Submit"/>
     </form>
 
 <!-- FORM STOP -->

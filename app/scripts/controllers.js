@@ -14,7 +14,6 @@ angular.module('thinkagainbatmanApp')
                 id: $routeParams.batId
             };
             GetAThought.query(q).$promise.then(function(thoughts){
-                console.log(thoughts.docs[0]);
                 $scope.thought = thoughts.docs[0];
             });
         }
@@ -24,9 +23,23 @@ angular.module('thinkagainbatmanApp')
     }])
 
     .controller('ManageController', ['$scope', 'GetAThought', function ($scope, GetAThought){
-        GetAThought.query().$promise.then(function(thoughts){
+        $scope.thoughtInstance = GetAThought.query(function(thoughts){
             $scope.thoughts = thoughts.docs;
         });
+        $scope.addAThought = function(){
+            GetAThought.save({
+                img: {
+                    scale: 'cover',
+                    src: 'http://roshow.net/public/images/thinkbatman/bat404.jpg'
+                },
+                credit: {
+                    name: 'Default thought',
+                    link: '#/thought'
+                }
+            }, function (addedThought){
+                console.log(addedThought);
+            });
+        };
     }])
 
     .controller('ManageAThoughtController', ['$scope', '$routeParams', 'GetAThought', function ($scope, $routeParams, GetAThought){
@@ -40,8 +53,9 @@ angular.module('thinkagainbatmanApp')
         $scope.showAlert = true;
 
 
-        $scope.thoughtInstance = GetAThought.find($routeParams, function(thought){
+        $scope.thoughtInstance = GetAThought.query($routeParams, function(thought){
             $scope.thought = thought.docs[0];
+            $scope.thought.img.scale = ($scope.thought.img.scale !== 'contain') ? 'cover' : $scope.thought.img.scale;
         });
 
         $scope.hideAlert = function(){
@@ -54,5 +68,25 @@ angular.module('thinkagainbatmanApp')
                 updateState(4);
                 $scope.thought = savedThought.docs[0];
             });
+        };
+
+        $scope.uploadFiles = function(){
+            function uploadFiles (url, files) {
+                var formData = new FormData();
+
+                for (var i = 0, file; file = files[i]; ++i) {
+                    formData.append(file.name, file);
+                }
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', url, true);
+
+                xhr.send(formData);  // multipart/form-data
+            }
+
+            document.querySelector('input[type="file"]').addEventListener('change', function (e){
+                console.log(this.files);
+                uploadFiles('/uploadImg', this.files);
+            }, false);
         };
     }]);

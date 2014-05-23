@@ -7,9 +7,10 @@
     <h1>Manage Your Thoughts About Batman </h1>
 
     <div class="manage-topnav">
-        <input type="text" class="form-control manage-search" ng-model="thumbSearch" placeholder="Search" />
+        <input type="text" class="inline form-control manage-search" ng-model="thumbSearch" placeholder="Search" />
+        <button type="button" class="inline btn btn-default" ng-click="addAThought()">Add a Thought</button>
     </div>
     
-    <div class="thumb" ng-repeat="athought in thoughts | filter: thumbSearch" link-to="/manage/{{athought.id}}" back-img="athought.img"></div>
+    <div class="thumb" ng-repeat="athought in thoughts | filter: thumbSearch" link-to="/manage/{{athought._id}}" back-img="athought.img"></div>
 
 </div>

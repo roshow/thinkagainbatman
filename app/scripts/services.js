@@ -7,20 +7,12 @@ angular.module('thinkagainbatmanApp')
                 method: 'GET',
                 isArray: false
             },
-            find: {
-                method: 'GET',
-                isArray: false
-            },
             random: {
                 method:'GET',
                 params: {
                     random:true
                 },
                 isArray:false
-            },
-            getData: {
-                method: 'GET',
-                isArray: false
-            },
+            }
         });
     }]);
