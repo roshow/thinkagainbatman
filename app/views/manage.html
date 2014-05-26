@@ -11,6 +11,6 @@
         <button type="button" class="inline btn btn-default" ng-click="addAThought()">Add a Thought</button>
     </div>
     
-    <div class="thumb" ng-repeat="athought in thoughts | filter: thumbSearch" link-to="/manage/{{athought._id}}" back-img="athought.img"></div>
+    <div class="thumb" ng-repeat="athought in thoughts | filter: thumbSearch" ng-if="$index < 16" link-to="/manage/{{athought._id}}" back-img="athought.img"></div>
 
 </div>

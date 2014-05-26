@@ -71,27 +71,26 @@ angular.module('thinkagainbatmanApp')
         };
         $scope.uploadFiles = function(){
 
-            document.querySelector('input[type="file"]').addEventListener('change', function (err){
-                // console.log(this.files);
-                var url = '/uploadImg',
-                    files = this.files,
-                    formData = new FormData();
+                
+            updateState(3);
 
-                for (var i = 0, file; file = files[i]; ++i) {
-                    formData.append(file.name, file);
-                }
+            var url = '/uploadImg',
+                files = document.querySelector('input[type="file"]').files,
+                formData = new FormData();
 
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', url, true);
-                xhr.responseType = 'json';
-                xhr.onload = function(data){
-                    $scope.thought.img.src = 'http://roshow.net/public/images/thinkbatman/' + xhr.response.docs[0];
-                    $scope.saveThought();
-                    console.log(data);
-                    // console.log(xhr);
-                };
+            for (var i = 0, file; file = files[i]; ++i) {
+                formData.append(file.name, file);
+            }
 
-                xhr.send(formData);  // multipart/form-data
-            }, false);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', url, true);
+            xhr.responseType = 'json';
+            xhr.onload = function(data){
+                $scope.thought.img.src = 'http://roshow.net/public/images/thinkbatman/' + xhr.response.docs[0];
+                $scope.saveThought();
+                console.log(data);
+                // console.log(xhr);
+            };
+            xhr.send(formData);  // multipart/form-data
         };
     }]);
