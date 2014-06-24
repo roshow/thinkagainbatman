@@ -8,8 +8,8 @@ angular.module('thinkagainbatmanApp')
         scope: {
             backImg: '='
         },
-        link: function(scope, element, attrs){
-            scope.$watch('backImg', function(newVal, oldVal){
+        link: function(scope, element, attr){
+            scope.$watch('backImg', function (newVal, oldVal){
                 if (newVal && newVal.src){
                     var i = Math.floor(Math.random()*3),
                         img = new Image();
