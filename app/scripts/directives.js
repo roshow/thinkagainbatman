@@ -24,21 +24,6 @@ angular.module('thinkagainbatmanApp')
                     };
                     img.src = newVal.src;
                 }
-<<<<<<< HEAD
-            });
-        }
-    };
-})
-
-.directive('linkTo', ['$location', function($location){
-    return function(scope, element, attr){
-        element.on('click', function(){
-            $location.path(attr.linkTo).replace();
-            scope.$apply();
-        });
-    };
-}]);
-=======
             });
         }
     };
@@ -66,4 +51,3 @@ angular.module('thinkagainbatmanApp')
         }
     };
 });
->>>>>>> manage

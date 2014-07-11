@@ -13,11 +13,7 @@ angular.module('thinkagainbatmanApp')
                 // id: ($routeParams.batId.length === 24) ? $routeParams.batId.slice(19) : $routeParams.batId
                 id: $routeParams.batId
             };
-<<<<<<< HEAD
             GetAThought.query(q).$promise.then(function (thoughts){
-=======
-            GetAThought.query(q).$promise.then(function(thoughts){
->>>>>>> manage
                 $scope.thought = thoughts.docs[0];
             });
         }
@@ -25,8 +21,6 @@ angular.module('thinkagainbatmanApp')
             getRandom();
         }
     }])
-<<<<<<< HEAD
-=======
 
     .controller('ManageController', ['$scope', '$location', 'GetAThought', function ($scope, $location, GetAThought){
         $scope.thoughtInstance = GetAThought.query(function (thoughts){
@@ -100,4 +94,3 @@ angular.module('thinkagainbatmanApp')
             xhr.send(formData);  // multipart/form-data
         };
     }]);
->>>>>>> manage
