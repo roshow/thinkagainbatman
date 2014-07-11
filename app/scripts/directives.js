@@ -6,20 +6,23 @@ angular.module('thinkagainbatmanApp')
     return {
         restrict: 'A',
         scope: {
-            backImg: '='
+            backImg: '=',
+            batLoaded: '='
         },
         link: function(scope, element, attr){
             scope.$watch('backImg', function (newVal, oldVal){
                 if (newVal && newVal.src){
                     var img = new Image();
                     img.onload = function(){
-                        element.html('');
+                        scope.batLoaded = true;
                         element.css({
                             'background-image': 'url(' + newVal.src +')',
                             'background-size' : newVal.scale
                         });
+                        scope.$apply();
                     };
                     img.src = newVal.src;
+                    scope.batLoaded = false;
                 }
             });
         }
