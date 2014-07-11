@@ -8,11 +8,11 @@ angular.module('thinkagainbatmanApp', [
         $routeProvider
             .when('/thought', {
                 templateUrl: 'views/thought.html',
-                controller: 'ThoughtCtrl'
+                controller: 'ThoughtController'
             })
             .when('/thought/:batId', {
                 templateUrl: 'views/thought.html',
-                controller: 'ThoughtCtrl'
+                controller: 'ThoughtController'
             })
             .otherwise({
                 redirectTo: '/thought'
