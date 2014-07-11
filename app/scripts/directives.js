@@ -11,10 +11,7 @@ angular.module('thinkagainbatmanApp')
         link: function(scope, element, attr){
             scope.$watch('backImg', function (newVal, oldVal){
                 if (newVal && newVal.src){
-                    var i = Math.floor(Math.random()*3),
-                        img = new Image();
-                    // Spinner
-                    // element.html('<img id="batspinner" src="http://roshow.net/public/images/thinkbatman/spinners/batspinner_'+ i +'.jpg">');
+                    var img = new Image();
                     img.onload = function(){
                         element.html('');
                         element.css({
@@ -28,6 +25,10 @@ angular.module('thinkagainbatmanApp')
         }
     };
 })
+
+// var i = Math.floor(Math.random()*3),
+// element.html('<img id="batspinner" src="http://roshow.net/public/images/thinkbatman/spinners/batspinner_'+ i +'.jpg">');
+
 
 .directive('linkTo', ['$location', function($location){
     return function(scope, element, attr){
