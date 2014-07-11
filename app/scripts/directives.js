@@ -24,6 +24,7 @@ angular.module('thinkagainbatmanApp')
                     };
                     img.src = newVal.src;
                 }
+<<<<<<< HEAD
             });
         }
     };
@@ -37,3 +38,32 @@ angular.module('thinkagainbatmanApp')
         });
     };
 }]);
+=======
+            });
+        }
+    };
+})
+
+.directive('linkTo', ['$location', function($location){
+    return function(scope, element, attr){
+        element.on('click', function(){
+            $location.path(attr.linkTo).replace();
+            scope.$apply();
+        });
+    };
+}])
+
+.directive('upFile', function(){
+    return {
+        restrict: 'A',
+        scope: {
+            upFile: '=upFile'
+        },
+        link: function(scope, element, attr){
+            element.on('change', function(){
+                console.log(this.files);
+            });
+        }
+    };
+});
+>>>>>>> manage

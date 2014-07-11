@@ -1,0 +1,95 @@
+ul {
+    list-style: none;
+    padding: 0px;
+}
+
+li {
+    margin-top: 1em;
+}
+
+div {
+    margin: 0;
+}
+
+.form-wrapper {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+}
+form {
+    margin: 0 0 0 20px;
+
+    label {
+        margin-top: 10px;
+    }
+}
+
+.alert {
+  border-radius: 0;
+}
+
+.radio-buttons {
+    .radio {
+        display: inline-block;
+        margin-right: 20px;
+    }
+}
+
+.manage-topnav {
+    margin: 20px 0;
+    .manage-search {
+        width: 30%;
+    }
+}
+
+
+.bat-container {
+    width: 49% !important;
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
+}
+.bubble0 {
+    width: 80% !important;
+    border-width: 13px !important;
+}
+
+.thumb {
+    display: inline-block;
+    height: 150px;
+    width: 150px;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    &:hover {
+        top: -5px;
+        left: -5px;
+        box-shadow: 12px 12px 13px #222;
+        position: relative;
+    }
+    &.thumb-big {
+        height: 300px;
+        width: 300px;
+        margin: 10px;
+        opacity: 1;
+        box-shadow: none;
+        top: 0px;
+        left: 0px;
+    }
+}
+
+.thumb-label {
+    display: inline-block;
+    margin: 5px 0;
+    vertical-align: middle;
+}
+
+.submit-btn {
+    margin-top: 5px;
+    padding: 0.5px 11px;
+}
+
+.inline {
+    display: inline-block;
+}

@@ -13,6 +13,17 @@ angular.module('thinkagainbatmanApp', [
             .when('/thought/:batId', {
                 templateUrl: 'views/thought.html',
                 controller: 'ThoughtController'
+<<<<<<< HEAD
+=======
+            })
+            .when('/manage', {
+                templateUrl: 'views/manage.html',
+                controller: 'ManageController'
+            })
+            .when('/manage/:id', {
+                templateUrl: 'views/manage_thought.html',
+                controller: 'ManageAThoughtController'
+>>>>>>> manage
             })
             .otherwise({
                 redirectTo: '/thought'
