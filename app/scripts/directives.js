@@ -9,8 +9,8 @@ angular.module('thinkagainbatmanApp')
             backImg: '=',
             batLoaded: '='
         },
-        link: function(scope, element, attr){
-            scope.$watch('backImg', function (newVal, oldVal){
+        link: function(scope, element){
+            scope.$watch('backImg', function (newVal){
                 if (newVal && newVal.src){
                     var img = new Image();
                     img.onload = function(){
