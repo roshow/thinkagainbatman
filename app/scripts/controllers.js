@@ -23,5 +23,5 @@ angular.module('thinkagainbatmanApp')
         }
         else {
             $scope.getRandom();
-        }        
+        }
     }]);
