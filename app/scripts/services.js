@@ -2,7 +2,7 @@
 
 angular.module('thinkagainbatmanApp')
     .factory('GetAThought', ['$resource', function($resource){
-        return $resource('http://0.0.0.0:5000/thought/:id', {}, {
+        return $resource('/thought/:id', {}, {
             query: {
                 method: 'GET',
                 isArray: false
