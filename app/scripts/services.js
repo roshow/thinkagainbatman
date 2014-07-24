@@ -1,18 +1,42 @@
 'use strict';
 
 angular.module('thinkagainbatmanApp')
-    .factory('GetAThought', ['$resource', function($resource){
-        return $resource('http://0.0.0.0:5000/thought/:id', {}, {
-            query: {
-                method: 'GET',
-                isArray: false
+.factory('GetAThought', ['$resource', function($resource){
+    return $resource('http://0.0.0.0:5000/thought/:id', {}, {
+        query: {
+            method: 'GET',
+            isArray: false
+        },
+        random: {
+            method:'GET',
+            params: {
+                random:true
             },
-            random: {
-                method:'GET',
-                params: {
-                    random:true
-                },
-                isArray:false
-            }
-        });
-    }]);
+            isArray:false
+        }
+    });
+}])
+
+.factory('UploadThoughtImg', ['$q', function($q){
+
+    return function(file){
+        var deferred = $q.defer();
+        var url = 'http://0.0.0.0:5000/uploadImg',
+            formData = new FormData();
+
+        formData.append(file.name, file);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', url, true);
+        xhr.responseType = 'json';
+        xhr.onload = function(){
+            deferred.resolve(xhr.response);
+        };
+        xhr.send(formData);  // multipart/form-data
+
+        return deferred.promise;
+    };
+    
+}]);
+
+    

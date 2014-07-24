@@ -22,43 +22,36 @@
     </div>
 
     <div class="bat-container">
-        <div class="bubble0" back-img="thought.img"></div>
+        <div class="bubble0" back-img="thought.img" bat-loaded="loading"></div>
     </div>
     
 <!-- FORM START -->
     <div class="form-wrapper">
-        <form enctype="multipart/form-data" ng-submit="uploadFiles()">
+        <form enctype="multipart/form-data" novalidate>
             <label for="newImage">Upload an Image</label>
-            <input id="image-file" type="file" name="newImage" up-file="thought.filez" />
-            <input type="submit" class="btn btn-default submit-btn" value="Upload" />
+            <input id="image-file" type="file" name="newImage" fileread="imgFile" />
+            <button class="btn btn-default submit-btn" ng-click="uploadFiles()" ng-disabled="!imgFile">Upload</button>
         </form>
 
-        <form ng-submit="saveThought()" role="form">
+        <form novalidate>
           <div class="form-group">
             
-            <label for="about">About the thought, including credit.</label>
-            <input ng-model="thought.credit.name" type="text" class="form-control" id="about" />
+            <label>About the thought, including credit:
+            <input ng-model="thought.credit.name" type="text" class="form-control" id="about" /></label>
             
-            <label for="linkage">Url where you found this; give props, when props are due.</label>
-            <input ng-model="thought.credit.link" type="text" class="form-control" id="linkage" />
+            <label>Url where you found this; give props, when props are due:
+            <input ng-model="thought.credit.link" type="text" class="form-control" id="linkage" /></label>
           
             <div class="radio-buttons">
-
                 <div class="radio">
-                    <label>
-                        <input type="radio" name="optionsRadios" ng-model="thought.img.scale" value="cover">
-                        Cover
-                    </label>
+                    <label><input type="radio" name="optionsRadios" ng-model="thought.img.scale" value="cover">Cover</label>
                 </div>
-
                 <div class="radio">
-                    <label>
-                        <input type="radio" name="optionsRadios" ng-model="thought.img.scale" value="contain">
-                        Contain
-                    </label>
+                    <label><input type="radio" name="optionsRadios" ng-model="thought.img.scale" value="contain">Contain</label>
                 </div>
             </div>
-            <input type="submit" class="btn btn-default submit-btn" value="Save" />
+            
+            <button class="btn btn-default submit-btn" ng-click="saveThought()">Save</button>
 
           </div>
         </form>
