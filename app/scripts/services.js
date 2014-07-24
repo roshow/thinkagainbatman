@@ -1,8 +1,8 @@
 'use strict';
-
+var urlPrefix = 'http://0.0.0.0:5000';
 angular.module('thinkagainbatmanApp')
 .factory('GetAThought', ['$resource', function($resource){
-    return $resource('http://0.0.0.0:5000/thought/:id', {}, {
+    return $resource(urlPrefix + '/thought/:id', {}, {
         query: {
             method: 'GET',
             isArray: false
@@ -21,7 +21,7 @@ angular.module('thinkagainbatmanApp')
 
     return function(file){
         var deferred = $q.defer();
-        var url = 'http://0.0.0.0:5000/uploadImg',
+        var url = urlPrefix + '/uploadImg',
             formData = new FormData();
 
         formData.append(file.name, file);
@@ -36,7 +36,7 @@ angular.module('thinkagainbatmanApp')
 
         return deferred.promise;
     };
-    
+
 }]);
 
     
