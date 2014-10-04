@@ -13,15 +13,21 @@ angular.module('thinkagainbatmanApp')
         };
 
         if ($routeParams.batId){
-            console.log(sessionStorage.getItem($routeParams.batId));
-            var q = {
-                // id: ($routeParams.batId.length === 24) ? $routeParams.batId.slice(19) : $routeParams.batId
-                id: $routeParams.batId
-            };
-            GetAThought.query(q).$promise.then(function (thoughts){
-                $scope.thought = thoughts.docs[0];
+           var thoughtData = JSON.parse(sessionStorage.getItem($routeParams.batId));
+           if (!thoughtData) {
+                var q = {
+                    // id: ($routeParams.batId.length === 24) ? $routeParams.batId.slice(19) : $routeParams.batId
+                    id: $routeParams.batId
+                };
+                GetAThought.query(q).$promise.then(function (thoughts){
+                    $scope.thought = thoughts.docs[0];
+                    $scope.batLoading = false;
+                });
+            }
+            else {
+                $scope.thought = thoughtData.docs[0];
                 $scope.batLoading = false;
-            });
+            }
         }
         else {
             $scope.getRandom();
