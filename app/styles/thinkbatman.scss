@@ -32,7 +32,7 @@ html, body {
     cursor: default;
     a {
         text-decoration: none;
-        color: $lightTxt;
+        color: #FFD700;
         &:hover {
             color: $darkTxt;
         } 
@@ -58,8 +58,10 @@ html, body {
         margin: auto;
         position: relative;
         overflow: hidden;
-        border: 13px solid black;
+        border-width: 13px;
+        border-style: solid;
         border-radius: 50%;
+        border-color: #000044;
 
     }
 
@@ -69,7 +71,7 @@ html, body {
         @include shadow(15px 8px 4px 0px $shadow);
         padding-bottom: 50%;
         width: 75%;
-        border: 15px solid black;
+        border-width: 15px;
         margin-top: 2%;
         @media screen and (max-width: 750px) {
             width: 80%;
