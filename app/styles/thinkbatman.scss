@@ -13,9 +13,9 @@ $shadow: #444;
 }
 
 @mixin shadow($d) {
-    -moz-box-shadow:    $d;
-    -webkit-box-shadow: $d;
-    box-shadow:         $d;
+    // -moz-box-shadow:    $d;
+    // -webkit-box-shadow: $d;
+    // box-shadow:         $d;
 }
 
 *, *:before, *:after {
