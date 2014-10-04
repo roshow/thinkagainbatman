@@ -7,7 +7,6 @@ angular.module('thinkagainbatmanApp')
         
         $scope.getRandom = function(){
             GetAThought.random(function (thought){
-                sessionStorage.setItem(thought.docs[0]._id, JSON.stringify(thought));
                 $location.path('thought/' + thought.docs[0]._id);
             });
         };
