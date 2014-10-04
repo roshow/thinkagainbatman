@@ -7,11 +7,13 @@ angular.module('thinkagainbatmanApp')
         
         $scope.getRandom = function(){
             GetAThought.random(function (thought){
+                sessionStorage.setItem(thought.docs[0]._id, JSON.stringify(thought));
                 $location.path('thought/' + thought.docs[0]._id);
             });
         };
 
         if ($routeParams.batId){
+            console.log(sessionStorage.getItem($routeParams.batId));
             var q = {
                 // id: ($routeParams.batId.length === 24) ? $routeParams.batId.slice(19) : $routeParams.batId
                 id: $routeParams.batId
