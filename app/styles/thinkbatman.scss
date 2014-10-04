@@ -69,8 +69,8 @@ html, body {
         position: relative;
         @extend bubbs;
         @include shadow(15px 8px 4px 0px $shadow);
-        padding-bottom: 55%;
-        width: 80%;
+        padding-bottom: 50%;
+        width: 75%;
         border-width: 15px;
         margin-top: 2%;
         @media screen and (max-width: 750px) {
