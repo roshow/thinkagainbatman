@@ -38,7 +38,7 @@ html, body {
         } 
     }
 }
-.container {
+.bat-container {
     max-width: 860px;
     margin-right: auto;
     margin-left: auto;
@@ -69,8 +69,8 @@ html, body {
         position: relative;
         @extend bubbs;
         @include shadow(15px 8px 4px 0px $shadow);
-        padding-bottom: 50%;
-        width: 75%;
+        padding-bottom: 55%;
+        width: 80%;
         border-width: 15px;
         margin-top: 2%;
         @media screen and (max-width: 750px) {
@@ -83,19 +83,19 @@ html, body {
     .bubble1 {
         @extend bubbs;
         @include shadow(-2px 8px 2px 0px $shadow);
-        width: 18%;
-        padding-bottom: 8%;
-        left: -23%;
+        width: 14%;
+        padding-bottom: 6%;
+        left: -22%;
         margin-top: -8%;
     }
     .bubble1.rotate {
-        @include rotateit(-5deg);
+        @include rotateit(0deg);
     }
 
     .bubble2 {
         @extend bubbs;
         @include shadow(-1px 9px 2px 0px $shadow);
-        left: -33%;
+        left: -28%;
         margin-top: -5%;
         width: 10%;
         padding-bottom: 4%;
