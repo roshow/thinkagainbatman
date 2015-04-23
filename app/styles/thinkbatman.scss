@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=News+Cycle:400,700);
 @import url(http://fonts.googleapis.com/css?family=Oxygen:300,400,700);
 
-$bgGrey: #333;
+$bgGrey: #000;
 $lightTxt: #CACACA;
 $darkTxt: #868686;
 $shadow: #444;
@@ -27,12 +27,13 @@ $shadow: #444;
 html, body {
     background-color: $bgGrey;
     font-size: 100%;
-    font-family: 'Oxygen', sans-serif;
+    // font-family: 'Oxygen', sans-serif;
+    font-family: Tahoma, Geneva, sans-serif;
     color: $darkTxt;
     cursor: default;
     a {
         text-decoration: none;
-        color: #FFD700;
+        color: #DAA520;
         &:hover {
             color: $darkTxt;
         } 
@@ -61,7 +62,7 @@ html, body {
         border-width: 13px;
         border-style: solid;
         border-radius: 50%;
-        border-color: #000044;
+        border-color: #DAA520;
 
     }
 
@@ -71,11 +72,11 @@ html, body {
         @include shadow(15px 8px 4px 0px $shadow);
         padding-bottom: 50%;
         width: 75%;
-        border-width: 15px;
+        border-width: 10px;
         margin-top: 2%;
         @media screen and (max-width: 750px) {
             width: 80%;
-            border-width: 13px;
+            border-width: 7px;
         }
 
     }
@@ -110,13 +111,13 @@ html, body {
         position: relative;
         width: 100%;
         text-align: left;
-        margin-top: 3%;
+        margin-top: 60px;
         font-weight: 700;
         p {
-            font-size: 1em;
+            font-size: 0.9em;
         }
         .siteCredits {
-            font-size: 0.95em;
+            font-size: 0.9em;
             margin: 0;
             color: #454545;
             a {
